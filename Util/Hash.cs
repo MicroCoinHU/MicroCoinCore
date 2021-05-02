@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System;
 using System.IO;
 using System.Linq;
@@ -61,7 +60,6 @@ namespace MicroCoin.Util
 
         public static implicit operator ByteString(Hash s) => new ByteString(s);
 
-
         public static implicit operator byte[] (Hash s) => s._value;
 
         public static implicit operator Hash(byte[] s) => new Hash(s);
@@ -91,7 +89,6 @@ namespace MicroCoin.Util
             else {
                 if (_value == null) return;
                 bw.Write(_value);
-                
             }
         }
 
@@ -100,6 +97,4 @@ namespace MicroCoin.Util
             return _value.SequenceEqual(x._value);
         }
     }
-
-
 }
