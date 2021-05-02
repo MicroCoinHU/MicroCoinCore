@@ -17,12 +17,10 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System;
 
 namespace MicroCoin.Util
 {
-
     public struct Timestamp
     {
         private readonly uint _unixTimestamp;
@@ -56,7 +54,5 @@ namespace MicroCoin.Util
         {
             return ((DateTime)this).ToString();
         }
-
     }
-
 }
