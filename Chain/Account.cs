@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Transactions;
 using MicroCoin.Util;
 using System;
@@ -72,7 +71,6 @@ namespace MicroCoin.Chain
 
         public Account()
         {
-
         }
 
         public Account(Stream s)
