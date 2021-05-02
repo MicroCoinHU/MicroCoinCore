@@ -362,7 +362,6 @@ namespace MicroCoin.Chain
                         BlocksNeeded = (int)(checkPoint.Count * 2)
                     });
                 }
-
             }
             return checkPoint;
         }
