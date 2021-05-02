@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using log4net;
 using MicroCoin.Transactions;
 using MicroCoin.Util;
@@ -30,14 +29,6 @@ using System.Text;
 
 namespace MicroCoin.Chain
 {
-
-    public class CheckPointBuildingEventArgs
-    {
-        public int BlocksNeeded { get; set; }
-        public int BlocksDone { get; set; }
-
-    }
-
     public class CheckPoints
     {
         private static readonly ILog Log =
@@ -371,7 +362,6 @@ namespace MicroCoin.Chain
                         BlocksNeeded = (int)(checkPoint.Count * 2)
                     });
                 }
-
             }
             return checkPoint;
         }
@@ -498,7 +488,6 @@ namespace MicroCoin.Chain
                             targetAccount.AccountInfo.AccountToPayPrice = 0;
                         }
                     }
-
                     break;
                 case TransactionType.ChangeAccountInfo:
                     ChangeAccountInfoTransaction changeAccountInfoTransaction = (ChangeAccountInfoTransaction)t;
@@ -596,23 +585,6 @@ namespace MicroCoin.Chain
                 SaveNext();
             }
             OldCheckPointHash = CheckPointHash(Current);
-        }
-    }
-
- 
-
-    public static class AccountNumberExtensions
-    {
-        public static bool IsValid(this AccountNumber number)
-        {
-            if (CheckPoints.Accounts.Count(p => p.AccountNumber == number) != 1) return false;
-            return true;
-        }
-
-        public static Account Account(this AccountNumber an)
-        {
-            if(!an.IsValid()) throw new InvalidCastException();
-            return CheckPoints.Accounts[an];
         }
     }
 }

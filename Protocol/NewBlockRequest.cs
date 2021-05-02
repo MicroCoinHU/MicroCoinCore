@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------
 // This file is part of MicroCoin - The first hungarian cryptocurrency
 // Copyright (c) 2018 Peter Nemeth
-// NewBlockRequest.cs - Copyright (c) 2018 Németh Péter
+// NewBlockRequest.cs - Copyright (c) 2018 NÃ©meth PÃ©ter
 //-----------------------------------------------------------------------
 // MicroCoin is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Chain;
 using System.IO;
 using System.Text;
@@ -26,7 +25,6 @@ namespace MicroCoin.Protocol
 {
     public class NewBlockRequest : MessageHeader
     {
-
         public Block Block { get; set; }
 
         public NewBlockRequest() : base()
@@ -41,8 +39,6 @@ namespace MicroCoin.Protocol
             this.RequestType = Net.RequestType.AutoSend;
             this.Block = Block;            
         }
-
-
 
         internal NewBlockRequest(Stream stream) : base(stream)
         {

@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 namespace MicroCoin.Util
 {
     public struct MCC
@@ -38,7 +37,6 @@ namespace MicroCoin.Util
         {
             return (ulong)(m.value*10000M);
         }
-
 
         public static implicit operator MCC(ulong m)
         {
@@ -80,11 +78,9 @@ namespace MicroCoin.Util
             return value.ToString(format);
         }
 
-
         public override int GetHashCode()
         {
             return value.GetHashCode();
         }
-
     }
 }

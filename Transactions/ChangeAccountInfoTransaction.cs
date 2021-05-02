@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Cryptography;
 using MicroCoin.Util;
 using System.IO;
@@ -27,7 +26,6 @@ namespace MicroCoin.Transactions
 {
     public sealed class ChangeAccountInfoTransaction : Transaction
     {
-
         public enum AccountInfoChangeType : byte { PublicKey = 1, AccountName = 2, AccountType = 3 }
 
         public byte ChangeType { get; set; }

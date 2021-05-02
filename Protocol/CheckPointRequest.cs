@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Util;
 using System.IO;
 using System.Text;
@@ -42,7 +41,6 @@ namespace MicroCoin.Protocol
         }
         public CheckPointRequest()
         {
-
         }
         internal override void SaveToStream(Stream s)
         {

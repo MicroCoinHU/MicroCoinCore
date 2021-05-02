@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Cryptography;
 using MicroCoin.Util;
 using System;
@@ -92,7 +91,6 @@ namespace MicroCoin.Chain
 
         public CheckPointBlock() 
         {
-
         }
 
         internal Hash CalculateBlockHash(bool checkproto = false)

@@ -1,7 +1,7 @@
 ﻿//-----------------------------------------------------------------------
 // This file is part of MicroCoin - The first hungarian cryptocurrency
 // Copyright (c) 2018 Peter Nemeth
-// BlockHeaderForHash.cs - Copyright (c) 2018 Németh Péter
+// MicroCoinClient.cs - Copyright (c) 2018 Németh Péter
 //-----------------------------------------------------------------------
 // MicroCoin is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -17,27 +17,18 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
+using MicroCoin.Protocol;
 using System;
-using MicroCoin.Util;
 
-namespace MicroCoin.Chain
+namespace MicroCoin.Net
 {
-    public struct BlockHeaderForHash
+    public class NewTransactionEventArgs : EventArgs
     {
-        public Hash Part1 { get; set; }
-        public ByteString MinerPayload { get; set; }
-        public Hash Part3 { get; set; }
-        public Hash Join()
-        {
-            return Part1 + MinerPayload + Part3;
-        }
+        public NewTransactionMessage Transaction { get; }
 
-        public Hash GetBlockHeaderHash(uint nonce, uint timestamp)
+        public NewTransactionEventArgs(NewTransactionMessage transaction)
         {
-            Hash s1 = $"{timestamp:X04}";
-            Hash s2 = $"{nonce:X08}";
-            Hash h = (byte[]) MinerPayload;
-            return Part1 + h + Part3 + s1.Reverse() + s2.Reverse();
+            Transaction = transaction;
         }
     }
 }

@@ -17,14 +17,12 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 namespace MicroCoin.Protocol
 {
     public class Request : MessageHeader
     {
         public Request()
         {
-
         }
         public Request(MessageHeader rp)
         {
@@ -37,6 +35,5 @@ namespace MicroCoin.Protocol
             AvailableProtocol = rp.AvailableProtocol;
             DataLength = rp.DataLength;
         }
-
     }
 }

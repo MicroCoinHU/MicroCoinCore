@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Util;
 using System.IO;
 using System.Text;
@@ -41,7 +40,7 @@ namespace MicroCoin.Chain
         public uint BlockOffset(uint blockNumber)
         {
             if (blockNumber > Offsets.Length) return uint.MaxValue;
-            return Offsets[blockNumber];// + (int)HeaderEnd;
+            return Offsets[blockNumber];    // + (int)HeaderEnd;
         }
         public CheckPointHeader() { }
         public CheckPointHeader(Stream s)

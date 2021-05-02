@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Cryptography;
 using MicroCoin.Util;
 using System.IO;
@@ -40,7 +39,6 @@ namespace MicroCoin.Transactions
         }
         public TransferTransaction()
         {
-
         }
         public override byte[] GetHash()
         {
@@ -123,9 +121,7 @@ namespace MicroCoin.Transactions
                     }
                 }
                 Signature = new ECSignature(stream);
-                
             }
-
         }
         public override bool IsValid()
         {

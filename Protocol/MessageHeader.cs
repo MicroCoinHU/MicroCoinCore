@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Net;
 using System.IO;
 using System.Text;
@@ -26,7 +25,6 @@ namespace MicroCoin.Protocol
 {
     public class MessageHeader : RequestHeader
     {
-
         public MessageHeader() 
         {
             RequestType = RequestType.Response;            
@@ -62,8 +60,6 @@ namespace MicroCoin.Protocol
                 AvailableProtocol = br.ReadUInt16();
                 DataLength = br.ReadInt32();
             }
-
         }
-
     }
 }
