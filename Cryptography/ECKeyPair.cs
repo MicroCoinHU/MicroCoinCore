@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Util;
 using Org.BouncyCastle.Asn1.X9;
 using Org.BouncyCastle.Crypto;
@@ -34,7 +33,6 @@ using System.Text;
 
 namespace MicroCoin.Cryptography
 {
-
     public enum CurveType : ushort
     {
         Empty = 0,
