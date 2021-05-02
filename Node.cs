@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -44,7 +43,6 @@ using MicroCoin.Util;
 
 namespace MicroCoin
 {
-
     public class Node : IDisposable
     {
         private static readonly ILog Log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
@@ -249,7 +247,6 @@ namespace MicroCoin
                             PendingTransactions.Remove(trans);
                         }
                     }
-
                 }
                 microCoinClient.SendHello();
             };
@@ -282,7 +279,6 @@ namespace MicroCoin
                         }
                         catch
                         {
-
                         }
                     }
                 }
@@ -324,7 +320,6 @@ namespace MicroCoin
                     }
                     catch
                     {
-
                     }
                 }
             }
@@ -362,7 +357,7 @@ namespace MicroCoin
                                     {
                                     }
                                 }, null);
-                                while (!connected.WaitOne(1)) ;
+                                while (!connected.WaitOne(1));
                             }
                         }
                         catch (ThreadAbortException)
