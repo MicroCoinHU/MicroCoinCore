@@ -25,7 +25,6 @@ namespace MicroCoin.Util
 {
     public struct Hash
     {
-
         private readonly byte[] _value;
         
         public Hash(byte[] b)
