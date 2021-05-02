@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,7 +25,6 @@ namespace MicroCoin.Util
 {
     public struct ByteString
     {
-
         private byte[] _value;
 
         public ByteString(byte[] b)
@@ -87,6 +85,4 @@ namespace MicroCoin.Util
 //            bw.Write(value);
         }
     }
-
-
 }
