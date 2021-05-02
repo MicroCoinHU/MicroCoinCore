@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Chain;
 using MicroCoin.Cryptography;
 using MicroCoin.Net;
@@ -91,7 +90,6 @@ namespace MicroCoin.Protocol
                 Version = ByteString.ReadFromStream(br);
                 WorkSum = br.ReadInt64();
             }
-
         }
     }
 }
