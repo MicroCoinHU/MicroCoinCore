@@ -301,7 +301,6 @@ namespace MicroCoin
                 }
             };
             microCoinClient.SendHello();
-
         }
 
         internal void SendNewBlock(Block block)
