@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Cryptography;
 using MicroCoin.Transactions;
 using MicroCoin.Util;
@@ -62,7 +61,6 @@ namespace MicroCoin.Chain
                 Hash hash = Utils.DoubleSha256(headerHash);
                 return hash.SequenceEqual(ProofOfWork);
             }
-            
         }
 
         public Hash CalcProofOfWork()
@@ -75,7 +73,6 @@ namespace MicroCoin.Chain
                 return hash;
             }
         }
-
 
         public BlockHeaderForHash GetBlockHeaderForHash()
         {
@@ -113,7 +110,6 @@ namespace MicroCoin.Chain
                 return (bw.BaseStream as MemoryStream)?.ToArray();
             }
         }
-
 
         internal Block(Stream s) : base(s)
         {            

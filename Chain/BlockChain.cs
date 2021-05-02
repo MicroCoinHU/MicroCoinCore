@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -71,7 +70,6 @@ namespace MicroCoin.Chain
 
         public static uint TargetToCompact(BigInteger targetPow)
         {
-                        
             BigInteger bn = targetPow;
             BigInteger bn2 = BigInteger.Parse("0800000000000000000000000000000000000000000000000000000000000000", System.Globalization.NumberStyles.HexNumber);
             uint nbits = 4;
@@ -115,7 +113,7 @@ namespace MicroCoin.Chain
         {
             var blockHeight = BlockHeight();
             if (BlockHeight() == 0)
-                return Tuple.Create(TargetFromCompact(Node.NetParams.MinimumDifficulty), Node.NetParams.MinimumDifficulty) ;
+                return Tuple.Create(TargetFromCompact(Node.NetParams.MinimumDifficulty), Node.NetParams.MinimumDifficulty);
             var lastBlock = Get(BlockHeight());
             var lastCheckPointBlock = Get(Math.Max(BlockHeight() - Node.NetParams.CheckPointFrequency, 0));
             var s = String.Format("{0:X}", lastBlock.CompactTarget);
@@ -178,7 +176,6 @@ namespace MicroCoin.Chain
             }
             return r;
         }
-
 
         internal static BlockChain Instance => _sInstance ?? (_sInstance = new BlockChain());
 
@@ -247,7 +244,7 @@ namespace MicroCoin.Chain
                     {
                         fi.Position = 16;
                         var first = ir.ReadUInt32();
-                        fi.Position = (blockNumber - first) * 16 + 16;
+                        fi.Position = ((blockNumber - first) * 16) + 16;
                         var bn = ir.ReadUInt32();
                         var pos = ir.ReadInt64();
                         if (bn != blockNumber) return null;
@@ -282,7 +279,7 @@ namespace MicroCoin.Chain
                     {
                         fi.Position = 16;
                         var first = ir.ReadUInt32();
-                        fi.Position = (start - first) * 16 + 16;
+                        fi.Position = ((start - first) * 16) + 16;
                         var bn = ir.ReadUInt32();
                         var pos = ir.ReadInt64();
                         if (bn != start) return null;

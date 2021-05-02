@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System.IO;
 using MicroCoin.Cryptography;
 using MicroCoin.Util;

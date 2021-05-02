@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using log4net;
 using System;
 using System.Diagnostics;
@@ -45,7 +44,7 @@ namespace MicroCoin.Net
 
         protected int WaitForData(int timeoutMs)
         {
-            while (TcpClient.Available == 0);
+            while (TcpClient.Available == 0)
             return TcpClient.Available;
         }
 
@@ -90,7 +89,6 @@ namespace MicroCoin.Net
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-
         }
 
         protected virtual void Dispose(bool disposing)
@@ -151,10 +149,8 @@ namespace MicroCoin.Net
                 {
                     return true;
                 }
-
                 Thread.Sleep(1);
             }
-
             return false;
         }
 

@@ -17,14 +17,12 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System;
 
 namespace MicroCoin.Util
 {
     public struct AccountNumber : IEquatable<object>, IEquatable<uint>, IEquatable<string>
     {
-
         private readonly uint _value;
 
         public AccountNumber(string value) {
@@ -82,11 +80,9 @@ namespace MicroCoin.Util
             return !an.Equals(an2);
         }
 
-
         public override bool Equals(object obj)
         {
             return _value.Equals(obj);
-
         }
 
         public override string ToString()
@@ -119,6 +115,5 @@ namespace MicroCoin.Util
         {
             return (int) number._value;
         }
-
     }
 }

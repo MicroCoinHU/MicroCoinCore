@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Net;
 using System.IO;
 using System.Text;
@@ -44,7 +43,6 @@ namespace MicroCoin.Protocol
                 EndBlock = br.ReadUInt32();
             }
         }
-
 
         internal override void SaveToStream(Stream s)
         {

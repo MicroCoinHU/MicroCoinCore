@@ -1,4 +1,4 @@
-﻿//-----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // This file is part of MicroCoin - The first hungarian cryptocurrency
 // Copyright (c) 2018 Peter Nemeth
 // MicroCoinClient.cs - Copyright (c) 2018 Németh Péter
@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Chain;
 using MicroCoin.Cryptography;
 using MicroCoin.Protocol;
@@ -33,7 +32,6 @@ using System.Threading.Tasks;
 
 namespace MicroCoin.Net
 {
-
     public enum RequestType : ushort { None = 0, Request, Response, AutoSend, Unknown }
     public enum NetOperationType : ushort
     {
@@ -46,52 +44,9 @@ namespace MicroCoin.Net
         AddOperations = 0x20,
         CheckPoint = 0x21
     }
-    public class HelloRequestEventArgs : EventArgs
-    {
-        public HelloRequest HelloRequest { get; set; }
-        public HelloRequestEventArgs(HelloRequest helloRequest)
-        {
-            HelloRequest = helloRequest;
-        }
-    }
-    public class HelloResponseEventArgs : EventArgs
-    {
-        public HelloResponse HelloResponse { get; }
-        public HelloResponseEventArgs(HelloResponse helloResponse)
-        {
-            HelloResponse = helloResponse;
-        }
-    }
-    public class BlockResponseEventArgs : EventArgs
-    {
-        public BlockResponse BlockResponse { get; }
-        public BlockResponseEventArgs(BlockResponse blockResponse)
-        {
-            BlockResponse = blockResponse;
-        }
-    }
-    public class NewBlockEventArgs : EventArgs
-    {
-        public Block Block { get; set; }
-
-        public NewBlockEventArgs(Block block)
-        {
-            Block = block;
-        }
-    }
-    public class NewTransactionEventArgs : EventArgs
-    {
-        public NewTransactionMessage Transaction { get; }
-
-        public NewTransactionEventArgs(NewTransactionMessage transaction)
-        {
-            Transaction = transaction;
-        }
-    }
 
     public class MicroCoinClient : P2PClient
-    {        
-
+    {
         public event EventHandler<HelloRequestEventArgs> HelloRequest;
         public event EventHandler<HelloResponseEventArgs> HelloResponse;
         public event EventHandler<BlockResponseEventArgs> BlockResponse;
@@ -124,7 +79,7 @@ namespace MicroCoin.Net
 
         protected virtual void OnNewTransaction(NewTransactionMessage newTransaction)
         {
-                NewTransaction?.Invoke(this, new NewTransactionEventArgs(newTransaction));
+            NewTransaction?.Invoke(this, new NewTransactionEventArgs(newTransaction));
         }
 
         protected virtual void OnGetBlockResponse(BlockResponse blockResponse)
@@ -145,7 +100,7 @@ namespace MicroCoin.Net
         internal override void Start()
         {
             base.Start();
-            Timer = new Timer(state =>SendHello(), null, 0, 120000);
+            Timer = new Timer(state => SendHello(), null, 0, 120000);
         }
 
         internal void SendHello()
@@ -188,7 +143,7 @@ namespace MicroCoin.Net
                 ms.Flush();
                 ms.Position = 0;
                 SendRaw(ms);
-            }            
+            }
         }
 
         private async Task<MessageHeader> ReadResponse(MemoryStream responseStream)
@@ -206,7 +161,7 @@ namespace MicroCoin.Net
                     file.Dispose();
                     //throw new Exception("DEV ERROR");
                 }
-                responseStream.Position = pos;                
+                responseStream.Position = pos;
                 return rp;
             });
         }
@@ -219,14 +174,13 @@ namespace MicroCoin.Net
             var rp = ReadHeader(responseStream);
             var pos = responseStream.Position;
             ReadBody(rp.DataLength, responseStream);
-            if(responseStream.Length!=rp.DataLength+RequestHeader.Size)
+            if (responseStream.Length != rp.DataLength + RequestHeader.Size)
             {
                 throw new InvalidDataException("Received invalid chunk");
             }
             responseStream.Position = pos;
             return rp;
         }
-
 
         internal async Task<HelloResponse> SendHelloAsync()
         {
@@ -238,7 +192,7 @@ namespace MicroCoin.Net
                 NodeServers = Node.Instance.NodeServers,
                 Operation = NetOperationType.Hello
             };
-            
+
             byte[] h = Utils.Sha256(Encoding.ASCII.GetBytes(Node.NetParams.GenesisPayload));
             request.Block = new Block
             {
@@ -274,7 +228,7 @@ namespace MicroCoin.Net
                 ms.Flush();
                 ms.Position = 0;
                 SendRaw(ms);
-            }            
+            }
             WaitForData(10000);
             using (var responseStream = new MemoryStream())
             {
@@ -398,7 +352,7 @@ namespace MicroCoin.Net
 
             WaitForData(10000);
             using (var rs = new MemoryStream())
-            {                
+            {
                 var rp = ReadResponseSync(rs);
                 switch (rp.Operation)
                 {
@@ -423,7 +377,6 @@ namespace MicroCoin.Net
             {
                 br.RequestId = requestId.Value;
             }
-
 
             using (MemoryStream ms = new MemoryStream())
             {
@@ -457,13 +410,13 @@ namespace MicroCoin.Net
             if (requestId != null)
             {
                 br.RequestId = requestId.Value;
-            }            
+            }
             using (MemoryStream ms = new MemoryStream())
             {
                 br.SaveToStream(ms);
                 ms.Position = 0;
                 SendRaw(ms);
-            }            
+            }
         }
 
         protected override bool HandleConnection()
@@ -479,7 +432,7 @@ namespace MicroCoin.Net
                     throw new InvalidDataException("More than expected");
                 ms.Position = pos;
                 HandleNetworkPacket(rp, ms);
-            }            
+            }
             return false;
         }
 
@@ -493,8 +446,9 @@ namespace MicroCoin.Net
         {
             ReadData(RequestHeader.Size, ms);
             ms.Position = 0;
-            MessageHeader rp = new MessageHeader(ms);            
-            if(rp.Magic != Node.NetParams.NetworkPacketMagic) {
+            MessageHeader rp = new MessageHeader(ms);
+            if (rp.Magic != Node.NetParams.NetworkPacketMagic)
+            {
                 throw new InvalidDataException("Invalid magic / no magic found");
             }
             if (rp.Error != 0)
@@ -563,22 +517,22 @@ namespace MicroCoin.Net
 
                     break;
                 case NetOperationType.Transactions:
-                {
-                    BlockRequest transactionBlockRequest = new BlockRequest(ms, rp);
-                    BlockResponse transactionBlockResponse = new BlockResponse
                     {
-                        RequestId = transactionBlockRequest.RequestId,
-                        Blocks = BlockChain.Instance.GetBlocks(transactionBlockRequest.StartBlock,
-                            transactionBlockRequest.EndBlock).ToList()
-                    };
-                    using (MemoryStream memoryStream = new MemoryStream())
-                    {
-                        transactionBlockResponse.SaveToStream(memoryStream);
-                        memoryStream.Position = 0;
-                        SendRaw(memoryStream);
+                        BlockRequest transactionBlockRequest = new BlockRequest(ms, rp);
+                        BlockResponse transactionBlockResponse = new BlockResponse
+                        {
+                            RequestId = transactionBlockRequest.RequestId,
+                            Blocks = BlockChain.Instance.GetBlocks(transactionBlockRequest.StartBlock,
+                                transactionBlockRequest.EndBlock).ToList()
+                        };
+                        using (MemoryStream memoryStream = new MemoryStream())
+                        {
+                            transactionBlockResponse.SaveToStream(memoryStream);
+                            memoryStream.Position = 0;
+                            SendRaw(memoryStream);
+                        }
+                        break;
                     }
-                    break;
-                }
                 case NetOperationType.CheckPoint:
                     break;
                 case NetOperationType.Hello:
@@ -635,5 +589,4 @@ namespace MicroCoin.Net
             }
         }
     }
-
 }

@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Util;
 using Org.BouncyCastle.Asn1;
 using Org.BouncyCastle.Asn1.X9;
@@ -179,7 +178,7 @@ namespace MicroCoin.Cryptography
                 {
                     ECParameters ephemPublicParams = ephem.ExportParameters(false);
                     int pointLen = ephemPublicParams.Q.X.Length;
-                    byte[] rBar = new byte[pointLen * 2 + 1];
+                    byte[] rBar = new byte[(pointLen * 2) + 1];
                     rBar[0] = (byte)(keyPair.PublicKey.X.Length + keyPair.PublicKey.Y.Length);
                     Buffer.BlockCopy(ephemPublicParams.Q.X, 0, rBar, 1, pointLen);
                     Buffer.BlockCopy(ephemPublicParams.Q.Y, 0, rBar, 1 + pointLen, pointLen);

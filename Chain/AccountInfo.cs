@@ -17,12 +17,10 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Cryptography;
 using MicroCoin.Util;
 using System;
 using System.IO;
-
 
 namespace MicroCoin.Chain
 {

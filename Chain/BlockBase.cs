@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System.CodeDom;
 using System.Diagnostics;
 using MicroCoin.Cryptography;
@@ -28,14 +27,12 @@ using log4net.Util;
 
 namespace MicroCoin.Chain
 {
-
     // TPCOperationsComp
     /// <summary>
     /// One block in the blockchain
     /// </summary>
     public class BlockBase
     {
-
         internal byte BlockSignature { get; set; } = 3;
         internal ushort ProtocolVersion { get; set; }
         internal ushort AvailableProtocol { get; set; }
@@ -131,6 +128,5 @@ namespace MicroCoin.Chain
                 ProofOfWork.SaveToStream(bw);
             }
         }
-
     }
 }
