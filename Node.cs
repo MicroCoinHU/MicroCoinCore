@@ -44,11 +44,6 @@ using MicroCoin.Util;
 
 namespace MicroCoin
 {
-    public class BlocksDownloadProgressEventArgs : EventArgs
-    {
-        public int BlocksToDownload { get; set; }
-        public int DownloadedBlocks { get; set; }
-    }
 
     public class Node : IDisposable
     {
