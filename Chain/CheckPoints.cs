@@ -491,7 +491,6 @@ namespace MicroCoin.Chain
                             targetAccount.AccountInfo.AccountToPayPrice = 0;
                         }
                     }
-
                     break;
                 case TransactionType.ChangeAccountInfo:
                     ChangeAccountInfoTransaction changeAccountInfoTransaction = (ChangeAccountInfoTransaction)t;
@@ -589,23 +588,6 @@ namespace MicroCoin.Chain
                 SaveNext();
             }
             OldCheckPointHash = CheckPointHash(Current);
-        }
-    }
-
- 
-
-    public static class AccountNumberExtensions
-    {
-        public static bool IsValid(this AccountNumber number)
-        {
-            if (CheckPoints.Accounts.Count(p => p.AccountNumber == number) != 1) return false;
-            return true;
-        }
-
-        public static Account Account(this AccountNumber an)
-        {
-            if(!an.IsValid()) throw new InvalidCastException();
-            return CheckPoints.Accounts[an];
         }
     }
 }
