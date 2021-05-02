@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Protocol;
 using System;
 
@@ -32,5 +31,4 @@ namespace MicroCoin.Net
             Transaction = transaction;
         }
     }
-
 }
