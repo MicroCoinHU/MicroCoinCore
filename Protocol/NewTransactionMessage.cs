@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Transactions;
 using MicroCoin.Util;
 using System;
@@ -28,7 +27,6 @@ namespace MicroCoin.Protocol
 {
     public class NewTransactionMessage : MessageHeader
     {
-        
         public uint TransactionCount { get; set; }
         private TransactionType[] TransactionTypes { get; }
         public ITransaction[] Transactions { get; set; }
@@ -76,7 +74,6 @@ namespace MicroCoin.Protocol
                     }
                 }
             }
-
         }
 
         internal override void SaveToStream(Stream s)
@@ -142,6 +139,5 @@ namespace MicroCoin.Protocol
         {
             return (T)Transactions[i];
         }
-
     }
 }
