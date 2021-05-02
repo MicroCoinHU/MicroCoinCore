@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Chain;
 using MicroCoin.Cryptography;
 using MicroCoin.Net;
@@ -31,7 +30,6 @@ namespace MicroCoin.Protocol
 {
     public class HelloResponse : MessageHeader
     {
-
         public ushort ServerPort { get; set; }
 
         public ECKeyPair AccountKey { get; set; }
