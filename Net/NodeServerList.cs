@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using log4net;
 using System;
 using System.Linq;
@@ -29,7 +28,6 @@ using System.Threading;
 
 namespace MicroCoin.Net
 {
-
     public class NewConnectionEventArgs : EventArgs
     {
         public NodeServer Node { get; set; }
@@ -170,4 +168,4 @@ namespace MicroCoin.Net
             Clear();
         }
     }
-    }
+}
