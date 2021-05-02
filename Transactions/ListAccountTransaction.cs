@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Chain;
 using MicroCoin.Cryptography;
 using MicroCoin.Util;
@@ -33,7 +32,6 @@ namespace MicroCoin.Transactions
             ListAccount = 4,
             DeListAccount = 5
         }
-
 
         public MCC AccountPrice { get; set; }
 
