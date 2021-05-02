@@ -28,16 +28,6 @@ using System.Threading;
 
 namespace MicroCoin.Net
 {
-    public class NewConnectionEventArgs : EventArgs
-    {
-        public NodeServer Node { get; set; }
-
-        public NewConnectionEventArgs(NodeServer node)
-        {
-            Node = node;
-        }
-    }
-
     public class NodeServerList : ConcurrentDictionary<string, NodeServer>, IDisposable
     {
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
