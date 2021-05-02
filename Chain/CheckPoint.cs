@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using log4net;
 using MicroCoin.Transactions;
 using MicroCoin.Util;
@@ -65,7 +64,6 @@ namespace MicroCoin.Chain
 
         public CheckPoint()
         {
-
         }
 
         public CheckPoint(Stream s)
@@ -143,7 +141,7 @@ namespace MicroCoin.Chain
                 checkPointBlock.AccumulatedWork = accWork;
                 checkPointBlock.AvailableProtocol = b.AvailableProtocol;
                 checkPointBlock.BlockNumber = b.BlockNumber;
-                checkPointBlock.BlockSignature = 2;//b.BlockSignature;
+                checkPointBlock.BlockSignature = 2;	//b.BlockSignature;
                 checkPointBlock.CheckPointHash = b.CheckPointHash;
                 checkPointBlock.CompactTarget = b.CompactTarget;
                 checkPointBlock.Fee = b.Fee;
@@ -271,7 +269,6 @@ namespace MicroCoin.Chain
                 WorkSum += this[i].CompactTarget;
                 foreach (Account a in this[i].Accounts)
                 {
-                    
                     Accounts.Add(a);
                     // Accounts.AddRange(b.Accounts);
                 }
@@ -436,6 +433,5 @@ namespace MicroCoin.Chain
                 return checkPoint;
             }
         }
-
     }
 }
