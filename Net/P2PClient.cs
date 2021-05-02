@@ -44,7 +44,7 @@ namespace MicroCoin.Net
 
         protected int WaitForData(int timeoutMs)
         {
-            while (TcpClient.Available == 0);
+            while (TcpClient.Available == 0)
             return TcpClient.Available;
         }
 
@@ -89,7 +89,6 @@ namespace MicroCoin.Net
         {
             Dispose(true);
             GC.SuppressFinalize(this);
-
         }
 
         protected virtual void Dispose(bool disposing)
