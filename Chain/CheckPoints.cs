@@ -31,13 +31,6 @@ using System.Text;
 namespace MicroCoin.Chain
 {
 
-    public class CheckPointBuildingEventArgs
-    {
-        public int BlocksNeeded { get; set; }
-        public int BlocksDone { get; set; }
-
-    }
-
     public class CheckPoints
     {
         private static readonly ILog Log =
