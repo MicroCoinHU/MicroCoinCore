@@ -29,7 +29,6 @@ using System.Text;
 
 namespace MicroCoin.Chain
 {
-
     public class CheckPoints
     {
         private static readonly ILog Log =
