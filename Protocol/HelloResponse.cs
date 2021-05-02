@@ -57,7 +57,6 @@ namespace MicroCoin.Protocol
                 Version = ByteString.ReadFromStream(br);
                 WorkSum = br.ReadUInt64();
             }
-
         }
 
         internal override void SaveToStream(Stream s)
