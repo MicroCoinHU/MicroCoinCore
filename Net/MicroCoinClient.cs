@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using MicroCoin.Chain;
 using MicroCoin.Cryptography;
 using MicroCoin.Protocol;
@@ -33,7 +32,6 @@ using System.Threading.Tasks;
 
 namespace MicroCoin.Net
 {
-
     public enum RequestType : ushort { None = 0, Request, Response, AutoSend, Unknown }
     public enum NetOperationType : ushort
     {
