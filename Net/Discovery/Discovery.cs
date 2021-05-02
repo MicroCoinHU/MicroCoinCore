@@ -17,7 +17,6 @@
 // along with MicroCoin. If not, see <http://www.gnu.org/licenses/>.
 //-----------------------------------------------------------------------
 
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -43,11 +42,9 @@ namespace MicroCoin.Net.Discovery
             catch
             {
                 udp = new UdpClient(new IPEndPoint(IPAddress.Any, 0));       
-                
             }
             StartListening();
             Discover();
-            
         }
 
         public List<IPEndPoint> GetEndPoints()
@@ -137,7 +134,6 @@ namespace MicroCoin.Net.Discovery
                 DiscoveryMessage response = new DiscoveryMessage {Command = DiscoveryCommand.HelloRequest};
                 foreach (var seed in _fixSeedIPs)
                 {
-
                     var ip = new IPEndPoint(IPAddress.Parse(seed), 15000);
                     response.Command = DiscoveryCommand.HelloRequest;                                        
                     udp.Send(response.ToByteArray(), response.Length, ip);
@@ -150,6 +146,5 @@ namespace MicroCoin.Net.Discovery
                 endPoints.Clear();
             }
         }
-
     }
 }
