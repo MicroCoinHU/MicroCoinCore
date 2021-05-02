@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
-using System.Reflection;
 using System.Threading;
-using log4net;
 using MicroCoin.Chain;
 using MicroCoin.Protocol;
 using MicroCoin.Util;
@@ -71,7 +69,6 @@ namespace MicroCoin.Mining
                             ms.Position = 0;
                             ms.CopyTo(client.GetStream());
                             client.GetStream().Flush();
-                            
                         }
 
                         int timeout = 60000;
@@ -143,7 +140,6 @@ namespace MicroCoin.Mining
                                 }
                                 else
                                 {
-
                                 }
                             }
                         }
@@ -214,6 +210,5 @@ namespace MicroCoin.Mining
                 Name="MinerServer"
             }.Start();
         }
-
     }
 }
