@@ -23,6 +23,5 @@ namespace MicroCoin.Chain
     {
         public int BlocksNeeded { get; set; }
         public int BlocksDone { get; set; }
-
     }
 }
